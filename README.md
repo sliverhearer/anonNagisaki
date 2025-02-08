@@ -1,2 +1,1 @@
-"# anonNagisaki" 
-a game
+just a game
