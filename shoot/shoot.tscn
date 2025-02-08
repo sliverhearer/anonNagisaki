@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbrx47vgxcyv6"]
+
+[ext_resource type="Texture2D" uid="uid://dy4v2v3yie5px" path="res://imgs/t.png" id="1_4si7v"]
+[ext_resource type="Script" path="res://shoot/shoot.gd" id="1_ip3gi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24rt2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ltgi0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4si7v")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Shoot" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_ip3gi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_24rt2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 4.76837e-07)
+scale = Vector2(0.0593472, 0.0607903)
+sprite_frames = SubResource("SpriteFrames_ltgi0")
+animation = &"walk"
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]

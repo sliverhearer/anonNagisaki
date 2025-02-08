@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://x22gayo84st1"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_hccl1"]
+[ext_resource type="Texture2D" uid="uid://b7ddoch4teevb" path="res://imgs/qanon.png" id="2_n1rsp"]
+[ext_resource type="Texture2D" uid="uid://bd3g7tranecss" path="res://imgs/soyo.png" id="3_0txo5"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_ptr6l"]
+device = -1
+keycode = 88
+unicode = 120
+
+[sub_resource type="Shortcut" id="Shortcut_q3yhk"]
+events = [SubResource("InputEventKey_ptr6l")]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_hccl1")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 64
+text = "0"
+
+[node name="Message" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -278.5
+offset_top = -77.0
+offset_right = 201.5
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
+text = "Bang Dream
+It's mygo!!!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 234.0
+offset_top = 351.0
+offset_right = 434.0
+offset_bottom = 451.0
+shortcut = SubResource("Shortcut_q3yhk")
+text = "Start"
+icon = ExtResource("2_n1rsp")
+expand_icon = true
+
+[node name="MessageTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="Help" type="Label" parent="."]
+offset_left = 530.0
+offset_top = 329.0
+offset_right = 691.0
+offset_bottom = 401.0
+theme_override_font_sizes/font_size = 21
+text = "WASD控制移动
+
+躲这个→"
+horizontal_alignment = 1
+
+[node name="Soyo" type="Sprite2D" parent="."]
+position = Vector2(689, 421)
+scale = Vector2(0.626667, 0.693333)
+texture = ExtResource("3_0txo5")
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]

@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://dhh25rk6x5mr8"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_n6sra"]
+[ext_resource type="Texture2D" uid="uid://b7ddoch4teevb" path="res://imgs/qanon.png" id="2_2dyhn"]
+[ext_resource type="PackedScene" uid="uid://dbrx47vgxcyv6" path="res://shoot/shoot.tscn" id="2_m75p0"]
+[ext_resource type="Texture2D" uid="uid://b2nb1xvnppgrr" path="res://imgs/anonW.png" id="3_pfvbd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wfr67"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2dyhn")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pfvbd")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4dgnu"]
+radius = 42.0
+height = 132.0
+
+[node name="Player" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_n6sra")
+shoot_scene = ExtResource("2_m75p0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(124, 100)
+scale = Vector2(0.513333, 0.506667)
+sprite_frames = SubResource("SpriteFrames_wfr67")
+animation = &"up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(116, 100)
+shape = SubResource("CapsuleShape2D_4dgnu")
+
+[node name="_shoot" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="_shoot" to="." method="_on__shoot_timeout"]

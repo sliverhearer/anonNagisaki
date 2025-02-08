@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://be0b1gjnr7kpu"
+path="res://.godot/imported/04. 壱雫空 -Instrumental-.mp3-7481c68654c142708e618e2bf1d8e763.mp3str"
+
+[deps]
+
+source_file="res://shoot/04. 壱雫空 -Instrumental-.mp3"
+dest_files=["res://.godot/imported/04. 壱雫空 -Instrumental-.mp3-7481c68654c142708e618e2bf1d8e763.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
